@@ -3,7 +3,7 @@ const fs = require('fs')
 
 const DBSOURCE = './database/airport.db'
 
-let db = new sqlite3.Database(DBSOURCE, async (err) => {
+let db = new sqlite3.Database(DBSOURCE, (err) => {
     if (err) {
         return console.error(err.message);
     } else {
@@ -17,13 +17,14 @@ let db = new sqlite3.Database(DBSOURCE, async (err) => {
         (err) => {
             if (err) {
                 db.run(`DELETE FROM Airport`)
+                insert()
             }
         })
+        insert()
     }
-    await insert()
 })
 
-async function insert() {
+function insert() {
     let rawData = fs.readFileSync('./database/airports.json')
     let airports = JSON.parse(rawData)
 
