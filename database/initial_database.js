@@ -1,7 +1,7 @@
 const fs = require('fs')
 const sqlite3 = require('sqlite3')
 
-const db = new sqlite3.Database('file::memory:?cache=shared', uri = true, (err) => {
+const db = new sqlite3.Database('./database/airport.db', uri = true, (err) => {
     if (err) {
         return console.error(err.message);
     }
