@@ -16,13 +16,15 @@ app.use(bodyParser.json())
 
 require('./database/initial_database')
 
+app.use(require('./routes'))
+
 const state = { isShutdown: false };
 
-app.get('api/status', (req, res) => {
+app.get('/api/status', (req, res) => {
     if (state.isShutdown) {
-        res.status(500).send('response not ok!')
+        res.status(500).json({ message: 'response not ok!' })
     }
-    res.status(200).send('response ok')
+    res.status(200).json({ message: 'response ok!' })
 })
 
 let server = app.listen(port, () => {

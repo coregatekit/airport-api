@@ -1001,7 +1001,7 @@
     },
     {
       "City": "Busan, Korea",
-      "Country": "Republic of",
+      "Country": "South Korea",
       "Code": "PUS"
     },
     {
@@ -3036,7 +3036,7 @@
     },
     {
       "City": "Jeju, Korea",
-      "Country": "Republic of",
+      "Country": "South Korea",
       "Code": "CJU"
     },
     {
@@ -4043,11 +4043,6 @@
       "City": "Mae Hong Son",
       "Country": "Thailand",
       "Code": "HGN"
-    },
-    {
-      "City": "Magdalens Islands, PQ",
-      "Country": "",
-      "Code": ""
     },
     {
       "City": "Mahebourg",
@@ -6381,12 +6376,12 @@
     },
     {
       "City": "Seoul, Korea",
-      "Country": "Republic of",
+      "Country": "South Korea",
       "Code": "GMP"
     },
     {
       "City": "Seoul, Korea",
-      "Country": "Republic of",
+      "Country": "South Korea",
       "Code": "ICN"
     },
     {
@@ -7726,7 +7721,7 @@
     },
     {
       "City": "Yangyang, Korea",
-      "Country": "Republic of",
+      "Country": "South Korea",
       "Code": "YNY"
     },
     {
