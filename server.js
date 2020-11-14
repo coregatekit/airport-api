@@ -1,20 +1,16 @@
-const express = require('express')
-const morgan = require('morgan')
-const cors = require('cors')
-const fs = require('fs')
-const bodyParser = require('body-parser')
+var express = require('express')
+var cors = require('cors')
+var bodyParser = require('body-parser')
+var db = require('./database/database')
 
-const app = express()
+var app = express()
 
 const port = 3000 || process.env.PORT
 
 app.use(cors())
 
-app.use(morgan('dev'))
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
-
-require('./database/initial_database')
 
 app.use(require('./routes'))
 
@@ -39,12 +35,13 @@ const gracefulShutdown = () => {
     console.info('Got SIGTERM. Graceful shutdown start', new Date().toISOString())
     server.close(() => {
         console.log('Closed out remaining connections.')
-        fs.unlinkSync('./database/airport.db')
+        db.close()
         process.exit()
     })
 
     setTimeout(() => {
         console.error('Could not close connections in time, forcefully shutting down')
+        db.close()
         process.exit()
     }, 10 * 1000)
 }

@@ -1,12 +1,6 @@
 const router = require('express').Router()
-const sqlite3 = require('sqlite3').verbose()
 
-let db = new sqlite3.Database('./database/airport.db', (err) => {
-    if (err) {
-        return console.error(err.message)
-    }
-    console.log('Query connected to Airport Database')
-})
+var db = require('../../database/database')
 
 router.get('/airports', (req, res, next) => {
     var sql = `SELECT * FROM Airport ORDER BY Code`
